@@ -2,8 +2,7 @@
 
 # 1. Overview #
 
-Programmable electronic constant current dummy load with two high side voltage and current sensors for an automatic analysis of power supplys, DC/DC converters, voltage regulators, batteries, chargers, power consumers and others.
-The device can be controlled via USB serial interface using a serial monitor or the provided python skripts. Data can be exported to spread sheet programs or directly be analyzed by the Python skript.
+The Power Analyzer is a programmable electronic constant current dummy load with two high side voltage and current sensors for an automatic analysis of power supplys, DC/DC converters, voltage regulators, batteries, chargers, power consumers and others. The device can be controlled via USB serial interface using a serial monitor or the provided Python skripts. Data can be exported to spread sheet programs or directly be analyzed by the Python skript.
 
 ![IMG_20200418_124716_x.jpg](https://image.easyeda.com/pullimage/JiItuSNVWCwB8sDvpDRtLE4U1jW5eZ8c6Ffm1ckF.jpeg)
 
@@ -78,10 +77,12 @@ The ATtiny814 controls the electronic dummy load with its internal digital to an
 
 - Use a good heatsink with a 5V fan for the MOSFET! Attach a 10K 3950B NTC thermistor to the heatsink close to the MOSFET!
 - Be careful with high power loads! Make some tests to figure out what can be achieved with your cooling solution!
-- Due to the limitations of the cheap OpAmp the minimum load current is around 17mA. You can choose a better OpAmp if you like (must have same pinout, must be rail-to-rail and unity gain stable), but for most cases this is not neccessary.
+- Due to the limitations of the cheap OpAmp the minimum load current is around 17mA. You can choose a better OpAmp if you like (must have same pinout, must be rail-to-rail and unity gain stable), but for most cases this is not necessary.
 - The maximum load current is 5A, however for small voltages it might be less.
 - The maximum PWR-IN/PWR-OUT current is 8A.
 - Do not exceed the maximum voltage of 26V on all connectors !
 - In order to make the design much simpler all connectors including USB share a common ground. Keep this in mind when making your test setup in order to avoid ground loops or shorts. Using a USB isolator between the Analyzer and your PC is not a bad idea!
-- You need a UPDI programmer for uploading the firmware. You can find one in my projects (https://easyeda.com/wagiminator/y-updi-programmer) or you can use an Arduino as a jtag2updi. Further information can be found at https://github.com/SpenceKonde/megaTinyCore
+- Windows users may need to install a driver: http://www.wch.cn/download/CH341SER_ZIP.html. This is not necessary for linux users.
+- You need a UPDI programmer for uploading the firmware. You can find one in my projects (https://easyeda.com/wagiminator/y-updi-programmer) or you can use an Arduino as a jtag2updi. Further information can be found at https://github.com/SpenceKonde/megaTinyCore.
+- The Python skript was only tested on Linux, but it should also work on other operating systems.
 - The software is still in development. There might be some minor bugs. New functions and test algorithms will be added in the future.
