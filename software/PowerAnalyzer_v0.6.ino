@@ -23,7 +23,8 @@
 // Millis/Micros: enabled (default timer)
 // UART voltage:  closer to 5V
 //
-// 2020 by Stefan Wagner
+// 2020 by Stefan Wagner (https://easyeda.com/wagiminator)
+// License: http://creativecommons.org/licenses/by-sa/3.0/
 //
 // ---------------------------------------------------------------------------------------
 // Load Test:
