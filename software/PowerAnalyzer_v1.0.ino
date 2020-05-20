@@ -165,7 +165,7 @@
 #define LED_PIN     3                   // pin the status LED is connected to
 
 // Identifiers
-#define VERSION     "0.6"               // version number sent via serial if requested
+#define VERSION     "1.0"               // version number sent via serial if requested
 #define IDENT       "Power Analyzer"    // identifier sent via serial if requested
 #define SEPERATOR   "\t"                // seperator string for serial communication
 #define DONE        "DONE"              // string sent when operation has finished

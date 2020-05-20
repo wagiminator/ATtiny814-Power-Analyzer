@@ -10,7 +10,8 @@
 #
 # pySerial and tkinter (8.6 or newer) need to be installed
 #
-# 2020 by Stefan Wagner
+# 2020 by Stefan Wagner (https://easyeda.com/wagiminator)
+# License: http://creativecommons.org/licenses/by-sa/3.0/
 
 import os
 from tkinter        import *
