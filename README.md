@@ -4,6 +4,8 @@
 
 The Power Analyzer is a programmable electronic constant current dummy load with two high side voltage and current sensors for an automatic analysis of power supplys, DC/DC converters, voltage regulators, batteries, chargers, power consumers and others. The device can be controlled via USB serial interface using a serial monitor or the provided Python skripts. Data can be exported to spread sheet programs or directly be analyzed by the Python skript.
 
+Video: https://youtu.be/q4-aywmeqHs
+
 ![IMG_20200418_124716_x.jpg](https://image.easyeda.com/pullimage/JiItuSNVWCwB8sDvpDRtLE4U1jW5eZ8c6Ffm1ckF.jpeg)
 
 # 2. Working Principle #
