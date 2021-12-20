@@ -145,7 +145,6 @@ void CMD_read(void) {
 ### If using the makefile (Linux/Mac)
 - Connect your [programmer](https://github.com/wagiminator/AVR-Programmer) (jtag2updi or SerialUPDI) to your PC and to the UPDI header on the board.
 - Download [AVR 8-bit Toolchain](https://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers) and extract the sub-folders (avr, bin, include, ...) to /software/tools/avr-gcc. To do this, you have to register for free with Microchip on the download site.
-- Open the makefile and set the programmer and port (default is serialupdi on /dev/ttyUSB0).
 - Open a terminal.
 - Navigate to the folder with the makefile and the sketch.
 - Run `DEVICE=attiny814 PROGRMR=serialupdi PORT=/dev/ttyUSB0 make install` to compile, burn the fuses and upload the firmware (change DEVICE, PROGRMR and PORT accordingly).
