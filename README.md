@@ -148,7 +148,7 @@ void CMD_read(void) {
 - Open the makefile and set the programmer and port (default is serialupdi on /dev/ttyUSB0).
 - Open a terminal.
 - Navigate to the folder with the makefile and the sketch.
-- Run "make install" to compile, burn the fuses and upload the firmware.
+- Run `DEVICE=attiny814 PROGRMR=serialupdi PORT=/dev/ttyUSB0 make install` to compile, burn the fuses and upload the firmware (change DEVICE, PROGRMR and PORT accordingly).
 
 # Operating Instructions
 The device can be operated in two ways:

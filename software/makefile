@@ -9,35 +9,35 @@
 # Type "make help" in the command line.
 
 # Input and Output File Names
-SKETCH  = PowerAnalyzer.ino
-TARGET  = poweranalyzer
+SKETCH   = PowerAnalyzer.ino
+TARGET   = poweranalyzer
 
 # Microcontroller Options
-DEVICE  = attiny814
-CLOCK   = 20000000
-FUSE0   = 0x00
-FUSE1   = 0x00
-FUSE2   = 0x02
-FUSE4   = 0x00
-FUSE5   = 0xC5
-FUSE6   = 0x04
-FUSE7   = 0x00
-FUSE8   = 0x00
+DEVICE  ?= attiny814
+CLOCK    = 20000000
+FUSE0    = 0x00
+FUSE1    = 0x00
+FUSE2    = 0x02
+FUSE4    = 0x00
+FUSE5    = 0xC5
+FUSE6    = 0x04
+FUSE7    = 0x00
+FUSE8    = 0x00
 
 # Programmer Options (serialupdi or jtag2updi)
-PROGRMR = serialupdi
-PORT    = /dev/ttyUSB0
+PROGRMR ?= serialupdi
+PORT    ?= /dev/ttyUSB0
 
 # Paths
-GCCPATH = ./tools/avr-gcc
-DFPPATH = ./tools/dfp
-PYMPATH = ./tools/pymcuprog
-ADCPATH = ./tools/avrdude
+GCCPATH  = ./tools/avr-gcc
+DFPPATH  = ./tools/dfp
+PYMPATH  = ./tools/pymcuprog
+ADCPATH  = ./tools/avrdude
 
 # Commands
 DFPINCL = -B $(DFPPATH)/gcc/dev/$(DEVICE)/ -I $(DFPPATH)/include/
 COMPILE = $(GCCPATH)/bin/avr-gcc $(DFPINCL) -flto -Wall -Os -mmcu=$(DEVICE) -DF_CPU=$(CLOCK)UL -x c++ $(SKETCH)
-PYPROG  = python3 -u $(PYMPATH)/prog.py -t uart -u $(PORT) -b 230400 -d $(DEVICE)
+PYPROG  = python -u $(PYMPATH)/prog.py -t uart -u $(PORT) -b 230400 -d $(DEVICE)
 AVRDUDE = avrdude -C $(ADCPATH)/avrdude.conf -c jtag2updi -P $(PORT) -p $(DEVICE)
 CLEAN   = rm -f *.lst *.obj *.cof *.list *.map *.eep.hex *.o *.s *.d
 

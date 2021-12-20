@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 # ===================================================================================
 # Project:   Power Analyzer - analyzergui
 # Version:   1.0
@@ -14,10 +13,15 @@
 # A simple GUI based on tkinter to interface with the Power Analyzer,
 # collect and analyze data.
 #
+# Dependencies:
+# -------------
+# pySerial and tkinter (8.6 or newer) need to be installed
+#
+# Notes:
+# ------
 # Skript is still in development, not all features are implemented yet.
 # There might still be some bugs.
-#
-# pySerial and tkinter (8.6 or newer) need to be installed
+
 
 import os
 from tkinter        import *
@@ -33,17 +37,21 @@ CANW = 1000
 CANH = 500
 
 
+# ===================================================================================
+# Analyzer Class - Basic Communication with the Device via USB to Serial Converter
+# ===================================================================================
+
 class Analyzer(Serial):
     def __init__(self):
         super().__init__(baudrate = 115200, timeout = 1, write_timeout = 1)
         self.identify()
 
     def identify(self):
-        pid = '1a86'
-        hid = '7523'
+        vid = '1a86'
+        pid = '7523'
         did = 'Power Analyzer'
         for p in comports():
-            if pid and hid in p.hwid:
+            if vid and pid in p.hwid:
                 self.port = p.device
 
                 try:
@@ -83,6 +91,10 @@ class Analyzer(Serial):
         return version
 
 
+# ===================================================================================
+# Input Parameters Window
+# ===================================================================================
+
 def getParameters(fields, values):
     parameterWindow = Toplevel(mainWindow)
     parameterWindow.title('Enter Parameters')
@@ -107,6 +119,10 @@ def getParameters(fields, values):
     return fetches
 
 
+# ===================================================================================
+# Chart Implementation
+# ===================================================================================
+
 def setupCanvas(canvas):
     canvas.create_line(CANX, CANY - CANH - 51, CANX, CANY + 5, fill='black', width=2)
     canvas.create_line(CANX - 5, CANY, CANX + CANW + 40, CANY, fill='black', width=2)
@@ -130,12 +146,20 @@ def saveCanvas(canvas,fileName):
     img.save(fileName + '.png', 'png')
 
 
+# ===================================================================================
+# Not yet implemented functions
+# ===================================================================================
+
 def voltageCalibration():
     pass
 
 def currentCalibration():
     pass
 
+
+# ===================================================================================
+# LOAD TEST
+# ===================================================================================
 
 def testLoad():
     # establish connection to Power Analyzer
@@ -244,6 +268,10 @@ def testLoad():
     contentWindow.quit()
 
 
+# ===================================================================================
+# VOLTAGE REGULATION TEST
+# ===================================================================================
+
 def testRegulation():
     # establish connection to Power Analyzer
     analyzer = Analyzer()
@@ -341,6 +369,10 @@ def testRegulation():
     contentWindow.mainloop()
     contentWindow.quit()
 
+
+# ===================================================================================
+# EFFICIENCY TEST
+# ===================================================================================
 
 def testEfficiency():
     # establish connection to Power Analyzer
@@ -456,6 +488,10 @@ def testEfficiency():
     contentWindow.quit()
 
 
+# ===================================================================================
+# VOLTAGE RIPPLE TEST
+# ===================================================================================
+
 def testRipple():
     # establish connection to Power Analyzer
     analyzer = Analyzer()
@@ -544,6 +580,10 @@ def testRipple():
     contentWindow.mainloop()
     contentWindow.quit()
 
+
+# ===================================================================================
+# BATTERY DISCHARGE TEST
+# ===================================================================================
 
 def testBattery():
     # establish connection to Power Analyzer
@@ -662,6 +702,10 @@ def testBattery():
     contentWindow.mainloop()
     contentWindow.quit()
 
+
+# ===================================================================================
+# LONG TERM MULTIMETER
+# ===================================================================================
 
 def multimeter():
     # updates values on canvas
@@ -838,7 +882,9 @@ def multimeter():
 
 
 
-
+# ===================================================================================
+# Main Function
+# ===================================================================================
 
 mainWindow = Tk()
 mainWindow.title('Power Analyzer')
