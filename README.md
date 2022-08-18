@@ -187,7 +187,7 @@ The device can be operated in two ways:
 ![PowerAnalyzer_chart_battery.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_chart_battery.png)
 
 ## **Long-Term Multimeter**
-![PowerAnalyzer_block_multimeter.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_block_battery.png)
+![PowerAnalyzer_block_multimeter.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_block_multimeter.png)
 - Command: "m  *interval[ms: 2..65535]* *duration[s: 1..65535]*"
 - Example: "m 18000 18000"
 - The Power Analyzer measures voltage, current and power delivered to the test device at every *interval* for a total of *duration*. It continuously transmits the measured values via the serial interface in the format: time[ms] current[mA] voltage[mV] (seperated by the SEPERATOR string).
