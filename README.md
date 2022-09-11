@@ -216,6 +216,8 @@ The device can be operated in two ways:
 - You need a UPDI programmer for uploading the firmware. You can find one in my [projects](https://github.com/wagiminator/AVR-Programmer) or you can easily build one following this [guide](https://github.com/SpenceKonde/AVR-Guidance/blob/master/UPDI/jtag2updi.md).
 - The Python skript was only tested on Linux, but it should also work on other operating systems.
 
+![pic2.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_pic2.jpg)
+
 # License
 ![license.png](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
