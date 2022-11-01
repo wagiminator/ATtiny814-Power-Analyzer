@@ -149,10 +149,15 @@ void CMD_read(void) {
 - Navigate to the folder with the makefile and the sketch.
 - Run `DEVICE=attiny814 PROGRMR=serialupdi PORT=/dev/ttyUSB0 make install` to compile, burn the fuses and upload the firmware (change DEVICE, PROGRMR and PORT accordingly).
 
+## Installing Python and Drivers
+Python needs to be installed on your PC in order to use the GUI-based Python application. Most Linux distributions already include this. Windows users can follow these [instructions](https://www.pythontutorial.net/getting-started/install-python/). In addition PySerial and Tkinter (8.6 or newer) must be installed. However, these are already included in most Python installations.
+
+Windows users may also need to install a [driver](http://www.wch.cn/download/CH341SER_ZIP.html) for the CH330N/CH340N USB to serial adapter. This is not necessary for Linux or Mac users.
+
 # Operating Instructions
 The device can be operated in two ways:
 - Using a serial monitor: Test algorithms can be started by sending the corresponding command via a serial monitor. The collected data will be displayed in the serial monitor and can be exported to a spread sheet program for further analysis.
-- Using the GUI-based python application: This is the easy way. Everything should be self-explanatory. All following example pictures are created by this application.
+- Using the GUI-based Python application: This is the easy way. Everything should be self-explanatory. All following example pictures are created by this application.
 
 ## **Load Test**
 ![PowerAnalyzer_block_load.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_block_load.png)
