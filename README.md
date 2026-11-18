@@ -1,5 +1,5 @@
 # Power Supply Analyzer with USB Interface based on ATtiny814
-The Power Analyzer is a programmable electronic constant current dummy load with two high side voltage and current sensors for an automatic analysis of power supplys, DC/DC converters, voltage regulators, batteries, chargers, power consumers and others. The device can be controlled via USB serial interface using a serial monitor or the provided Python skripts. Data can be exported to spread sheet programs or directly be analyzed by the Python skript.
+The Power Analyzer is a programmable electronic constant current dummy load with two high side voltage and current sensors for an automatic analysis of power supplys, DC/DC converters, voltage regulators, batteries, chargers, power consumers and others. The device can be controlled via USB serial interface using a serial monitor, the provided Python skripts or the [Power Analyzer web app](https://wagiminator.github.io/apps/power-analyzer/) right in the browser. Data can be exported to spread sheet programs or directly be analyzed by the Python skript or the web app.
 
 - Project Video (YouTube): https://youtu.be/q4-aywmeqHs
 - Design Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny814-power-analyzer
@@ -15,7 +15,7 @@ For this purpose, a 100mΩ shunt consisting of three 300mΩ resistors in paralle
 
 Voltage and current are measured via a high side 8mΩ shunt resistor connected to an [INA219](https://www.ti.com/lit/ds/symlink/ina219.pdf) with a resolution of 4mV/1mA. A second INA219 is connected to another 8mΩ shunt resistor between the PWR-IN and PWR-OUT terminal. The INA219 is a current shunt and power monitor with an I²C-compatible interface. The device monitors both shunt voltage drop and bus supply voltage, with programmable conversion times and filtering. A programmable calibration value, combined with an internal multiplier, enables direct readouts of current in amperes. The selected shunt resistance of 8mΩ enables both a very small influence on the circuit and a measurement with a resolution of 1mA. For an accurate measurement, a shunt resistor with a low tolerance (1% or better) should be selected.
 
-The Power Analyzer is connected via USB to a PC or a RaspberryPi. Commands to the Analyzer can be sent via a serial monitor or by the GUI-based Python skript. The Analyzer has different built-in automatic test algorithms. The collected data is sent back via the serial interface/USB to the PC/RaspberryPi. The ATtiny814 constantly measures power and temperature of the heatsink. It controls the fan and cuts off the load when the temperature gets too hot.
+The Power Analyzer is connected via USB to a PC or a RaspberryPi. Commands to the Analyzer can be sent via a serial monitor, by the GUI-based Python skript or by the [web app](https://wagiminator.github.io/apps/power-analyzer/). The Analyzer has different built-in automatic test algorithms. The collected data is sent back via the serial interface/USB to the PC/RaspberryPi. The ATtiny814 constantly measures power and temperature of the heatsink. It controls the fan and cuts off the load when the temperature gets too hot.
 
 ![PowerAnalyzer_block.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_block.png)
 
@@ -149,15 +149,19 @@ void CMD_read(void) {
 - Navigate to the folder with the makefile and the sketch.
 - Run `DEVICE=attiny814 PROGRMR=serialupdi PORT=/dev/ttyUSB0 make install` to compile, burn the fuses and upload the firmware (change DEVICE, PROGRMR and PORT accordingly).
 
+## Using the Web App
+The [Power Analyzer web app](https://wagiminator.github.io/apps/power-analyzer/) runs in Chrome, Edge or Opera on a desktop computer and talks to the analyzer via the Web Serial API, so nothing needs to be installed. Click **Connect** and select the serial port of the analyzer. The web app shows the live readings of both sensors, switches the constant current load and runs all test programs with live charts and wiring diagrams. Measurements are kept in the browser, can be compared with each other and saved as CSV files or pictures; CSV files of the Python skript can be opened as well. A built-in simulator lets you try everything without the hardware.
+
 ## Installing Python and Drivers
 Python needs to be installed on your PC in order to use the GUI-based Python application. Most Linux distributions already include this. Windows users can follow these [instructions](https://www.pythontutorial.net/getting-started/install-python/). In addition PySerial and Tkinter (8.6 or newer) must be installed. However, these are already included in most Python installations.
 
 Windows users may also need to install a [driver](http://www.wch.cn/download/CH341SER_ZIP.html) for the CH330N/CH340N USB to serial adapter. This is not necessary for Linux or Mac users.
 
 # Operating Instructions
-The device can be operated in two ways:
+The device can be operated in three ways:
 - Using a serial monitor: Test algorithms can be started by sending the corresponding command via a serial monitor. The collected data will be displayed in the serial monitor and can be exported to a spread sheet program for further analysis.
 - Using the GUI-based Python application: This is the easy way. Everything should be self-explanatory. All following example pictures are created by this application.
+- Using the [web app](https://wagiminator.github.io/apps/power-analyzer/) in the browser: The easiest way, no installation needed. Connect, choose a test, set the parameters and press **Start test**.
 
 ## **Load Test**
 ![PowerAnalyzer_block_load.png](https://raw.githubusercontent.com/wagiminator/ATtiny814-Power-Analyzer/master/documentation/PowerAnalyzer_block_load.png)
